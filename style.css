@@ -1,0 +1,413 @@
+/* ==================================================
+   GLOBAL STYLES & RESET
+   ================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #f7f7f7;
+    color: #333333;
+    line-height: 1.6;
+}
+
+/* Common Section Title */
+.section-title {
+    text-align: center;
+    font-size: 32px;
+    font-weight: 800;
+    color: #702082;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+/* Common Primary Button */
+.btn-primary {
+    display: inline-block;
+    background-color: #e00070;
+    color: #ffffff;
+    padding: 12px 28px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 25px;
+    transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #b8005c;
+}
+
+
+/* ==================================================
+   1. NAVBAR
+   ================================================== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #702082;
+    padding: 18px 40px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    color: #ffffff;
+    font-size: 26px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #ff99cc;
+}
+
+.nav-btn {
+    background-color: #e00070;
+    color: #ffffff;
+    padding: 10px 22px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 20px;
+    transition: background-color 0.3s;
+}
+
+.nav-btn:hover {
+    background-color: #b8005c;
+}
+
+
+/* ==================================================
+   2. HERO SECTION
+   ================================================== */
+.hero {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), 
+                      url('https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=1400&auto=format&fit=crop&q=80');
+    background-size: cover;
+    background-position: center;
+    height: 480px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.hero-content {
+    max-width: 700px;
+    color: #ffffff;
+}
+
+.hero-content h1 {
+    font-size: 42px;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.hero-content p {
+    font-size: 18px;
+    margin-bottom: 25px;
+    color: #f0f0f0;
+}
+
+
+/* ==================================================
+   3. MENU SECTION
+   ================================================== */
+.menu-section {
+    padding: 60px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.menu-container {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.food-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    width: 255px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s;
+}
+
+.food-card:hover {
+    transform: translateY(-5px);
+}
+
+.food-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.card-body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    text-align: center;
+}
+
+.card-body h3 {
+    color: #702082;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.card-body p {
+    font-size: 14px;
+    color: #666666;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.card-btn {
+    background-color: #702082;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 9px 18px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.card-btn:hover {
+    background-color: #e00070;
+}
+
+
+/* ==================================================
+   4. OFFERS SECTION
+   ================================================== */
+.offers-section {
+    background-color: #f0e6f2;
+    padding: 60px 40px;
+}
+
+.offers-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.offer-card {
+    background-color: #ffffff;
+    border-top: 5px solid #e00070;
+    border-radius: 10px;
+    padding: 30px;
+    width: 440px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    position: relative;
+}
+
+.offer-tag {
+    background-color: #e00070;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 4px 10px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-bottom: 12px;
+}
+
+.offer-card h3 {
+    color: #702082;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.offer-card p {
+    font-size: 15px;
+    color: #555555;
+    margin-bottom: 20px;
+}
+
+.offer-btn {
+    display: inline-block;
+    background-color: #111111;
+    color: #ffffff;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.offer-btn:hover {
+    background-color: #e00070;
+}
+
+
+/* ==================================================
+   5. ABOUT SECTION
+   ================================================== */
+.about-section {
+    padding: 70px 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.about-container {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.about-image {
+    flex: 1;
+}
+
+.about-image img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-text h2 {
+    color: #702082;
+    font-size: 32px;
+    margin-bottom: 18px;
+}
+
+.about-text p {
+    font-size: 15px;
+    color: #555555;
+    margin-bottom: 16px;
+}
+
+.about-text .btn-primary {
+    margin-top: 10px;
+}
+
+
+/* ==================================================
+   6. FOOTER
+   ================================================== */
+.footer {
+    background-color: #111111;
+    color: #ffffff;
+    padding: 50px 40px 20px;
+}
+
+.footer-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.footer-col {
+    flex: 1;
+    min-width: 220px;
+}
+
+.footer-logo {
+    font-size: 24px;
+    color: #ffffff;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.footer-col p {
+    font-size: 14px;
+    color: #aaaaaa;
+}
+
+.footer-col h4 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #ff99cc;
+}
+
+.footer-col ul {
+    list-style: none;
+}
+
+.footer-col ul li {
+    margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+    color: #cccccc;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.footer-col ul li a:hover {
+    color: #ffffff;
+}
+
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid #333333;
+    margin-top: 40px;
+    padding-top: 20px;
+    font-size: 13px;
+    color: #888888;
+}
+
+
+/* ==================================================
+   7. SIMPLE MOBILE MEDIA QUERY (1 simple breakpoint)
+   ================================================== */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .hero-content h1 {
+        font-size: 30px;
+    }
+
+    .about-container {
+        flex-direction: column;
+    }
+}
