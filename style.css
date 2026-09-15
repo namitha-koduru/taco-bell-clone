@@ -31,6 +31,7 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 20px;
 }
 
 body {
@@ -38,6 +39,11 @@ body {
     color: var(--tb-text-dark);
     line-height: 1.5;
     overflow-x: hidden;
+}
+
+/* Page Jump Anchor Target Offsets */
+section, footer {
+    scroll-margin-top: 20px;
 }
 
 /* --------------------------------------------------------------------------
@@ -1056,9 +1062,49 @@ body {
 }
 
 /* --------------------------------------------------------------------------
-   14. RESPONSIVE DESIGN (TABLETS & MOBILE SCREENS)
+   14. FLOATING PAGE JUMP BUTTON
+   -------------------------------------------------------------------------- */
+.jump-top-btn {
+    position: fixed;
+    bottom: 24px;
+    right: 15px;
+    z-index: 998;
+    background-color: var(--tb-purple);
+    color: var(--tb-white);
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+    font-size: 11px;
+    font-weight: 900;
+    line-height: 1.1;
+    border: 2px solid var(--tb-yellow);
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.jump-top-btn:hover {
+    background-color: var(--tb-yellow);
+    color: var(--tb-black);
+    transform: translateY(-4px);
+}
+
+/* --------------------------------------------------------------------------
+   15. RESPONSIVE DESIGN (TABLETS & MOBILE SCREENS)
    -------------------------------------------------------------------------- */
 @media (max-width: 850px) {
+    html {
+        scroll-padding-top: 65px;
+    }
+
+    section, footer {
+        scroll-margin-top: 65px;
+    }
+
     /* Convert fixed left sidebar into sticky top navigation on mobile */
     .sidebar {
         position: sticky;
@@ -1121,14 +1167,14 @@ body {
     /* Adjust Right Social Bar on smaller screens */
     .social-bar {
         top: auto;
-        bottom: 20px;
+        bottom: 80px;
         right: 15px;
-        flex-direction: row;
+        flex-direction: column;
     }
 
     .social-btn {
-        width: 36px;
-        height: 36px;
+        width: 38px;
+        height: 38px;
     }
 
     /* Hero Section adjustments */
