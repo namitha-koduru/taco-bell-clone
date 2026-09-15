@@ -1,6 +1,27 @@
-/* ==================================================
-   GLOBAL STYLES & RESET
-   ================================================== */
+/* ==========================================================================
+   TACO BELL INDIA CLONE - STYLESHEET
+   Pure Beginner HTML & CSS (No External Libraries, No Frameworks)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. CSS VARIABLES & BASE RESET
+   -------------------------------------------------------------------------- */
+:root {
+    --tb-purple: #702082;          /* Taco Bell Signature Purple */
+    --tb-dark-purple: #4B145C;     /* Deep Taco Bell Purple */
+    --tb-yellow: #F5C400;          /* Taco Bell Accent Yellow */
+    --tb-yellow-hover: #e0b000;    /* Darker Yellow for Hover */
+    --tb-black: #000000;           /* Jet Black */
+    --tb-dark-gray: #161616;       /* Sidebar & Card Dark Gray */
+    --tb-mid-gray: #282828;        /* Tab Separators / Borders */
+    --tb-light-gray: #f7f7f9;      /* Background Light Gray */
+    --tb-white: #ffffff;           /* Clean White */
+    --tb-text-dark: #222222;       /* Body Text */
+    --tb-text-muted: #666666;      /* Subtitles & Descriptions */
+    --tb-border: #e6e6e6;          /* Clean Line Dividers */
+    --sidebar-width: 160px;        /* Desktop Left Sidebar Width */
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -8,280 +29,907 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    background-color: #f7f7f7;
-    color: #333333;
-    line-height: 1.6;
+    background-color: #ffffff;
+    color: var(--tb-text-dark);
+    line-height: 1.5;
+    overflow-x: hidden;
 }
 
-/* Common Section Title */
-.section-title {
-    text-align: center;
-    font-size: 32px;
-    font-weight: 800;
-    color: #702082;
-    margin-bottom: 30px;
-    letter-spacing: 1px;
-}
-
-/* Common Primary Button */
-.btn-primary {
-    display: inline-block;
-    background-color: #e00070;
-    color: #ffffff;
-    padding: 12px 28px;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 25px;
-    transition: background-color 0.3s;
-}
-
-.btn-primary:hover {
-    background-color: #b8005c;
-}
-
-
-/* ==================================================
-   1. NAVBAR
-   ================================================== */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #702082;
-    padding: 18px 40px;
-    position: sticky;
+/* --------------------------------------------------------------------------
+   2. FIXED LEFT SIDEBAR NAVIGATION (DESKTOP)
+   -------------------------------------------------------------------------- */
+.sidebar {
+    position: fixed;
     top: 0;
-    z-index: 100;
+    left: 0;
+    width: var(--sidebar-width);
+    height: 100vh;
+    background-color: var(--tb-black);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+    overflow-y: auto;
 }
 
-.logo {
-    color: #ffffff;
-    font-size: 26px;
+/* Sidebar Logo Header */
+.sidebar-logo {
+    padding: 20px 10px 15px;
+    text-align: center;
+    background-color: var(--tb-black);
+    border-bottom: 2px solid #222222;
+}
+
+.sidebar-logo a {
+    text-decoration: none;
+    display: block;
+}
+
+.bell-icon {
+    font-size: 32px;
+    line-height: 1;
+    margin-bottom: 6px;
+    filter: drop-shadow(0 2px 4px rgba(112, 32, 130, 0.6));
+}
+
+.logo-text {
+    color: var(--tb-white);
+    font-size: 16px;
     font-weight: 900;
     letter-spacing: 2px;
+    line-height: 1.15;
 }
 
-.nav-links {
-    list-style: none;
+/* Slanted / Angled Navigation Tabs */
+.sidebar-nav {
     display: flex;
-    gap: 25px;
+    flex-direction: column;
+    gap: 3px;
+    padding: 10px 6px;
+    flex-grow: 1;
 }
 
-.nav-links a {
-    color: #ffffff;
+.nav-tab {
+    display: block;
+    background-color: #1a1a1a;
+    color: var(--tb-white);
     text-decoration: none;
-    font-size: 15px;
-    font-weight: bold;
-    letter-spacing: 0.5px;
-    transition: color 0.3s;
-}
-
-.nav-links a:hover {
-    color: #ff99cc;
-}
-
-.nav-btn {
-    background-color: #e00070;
-    color: #ffffff;
-    padding: 10px 22px;
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: bold;
-    border-radius: 20px;
-    transition: background-color 0.3s;
-}
-
-.nav-btn:hover {
-    background-color: #b8005c;
-}
-
-
-/* ==================================================
-   2. HERO SECTION
-   ================================================== */
-.hero {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), 
-                      url('https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=1400&auto=format&fit=crop&q=80');
-    background-size: cover;
-    background-position: center;
-    height: 480px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding: 12px 8px;
     text-align: center;
-    padding: 20px;
+    position: relative;
+    /* CSS Clip-Path creates the authentic slanted/angled edge tab */
+    clip-path: polygon(0 0, 100% 4px, 100% 100%, 0 calc(100% - 4px));
+    border-left: 3px solid transparent;
+    transition: all 0.2s ease-in-out;
 }
 
-.hero-content {
-    max-width: 700px;
-    color: #ffffff;
+.tab-text {
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: var(--tb-white);
+    display: inline-block;
 }
 
-.hero-content h1 {
-    font-size: 42px;
+/* Sidebar Tab Hover & Active States */
+.nav-tab:hover {
+    background-color: var(--tb-purple);
+    border-left: 3px solid var(--tb-yellow);
+    transform: translateX(3px);
+}
+
+.nav-tab:active {
+    background-color: var(--tb-dark-purple);
+}
+
+/* --------------------------------------------------------------------------
+   3. FIXED RIGHT SOCIAL MEDIA BAR
+   -------------------------------------------------------------------------- */
+.social-bar {
+    position: fixed;
+    right: 15px;
+    top: 36%;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.social-btn {
+    width: 42px;
+    height: 42px;
+    background-color: var(--tb-white);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333333;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+    transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.social-btn:hover {
+    transform: scale(1.12);
+    background-color: var(--tb-purple);
+    color: var(--tb-white);
+    box-shadow: 0 6px 16px rgba(112, 32, 130, 0.4);
+}
+
+/* --------------------------------------------------------------------------
+   4. MAIN CONTENT WRAPPER (Offset from fixed sidebar)
+   -------------------------------------------------------------------------- */
+.main-content {
+    margin-left: var(--sidebar-width);
+    min-height: 100vh;
+    background-color: #ffffff;
+}
+
+/* Common Section Header Utilities */
+.section-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-kicker {
+    font-size: 14px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    color: var(--tb-purple);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+}
+
+.section-title {
+    font-size: 32px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    color: var(--tb-black);
+    text-transform: uppercase;
+}
+
+.title-divider {
+    width: 60px;
+    height: 4px;
+    background-color: var(--tb-purple);
+    margin: 12px auto 0;
+    border-radius: 2px;
+}
+
+.title-divider-left {
+    width: 50px;
+    height: 4px;
+    background-color: var(--tb-purple);
+    margin: 10px 0 20px;
+    border-radius: 2px;
+}
+
+/* Common Buttons */
+.btn-yellow {
+    display: inline-block;
+    background-color: var(--tb-yellow);
+    color: var(--tb-black);
+    padding: 12px 28px;
+    font-size: 14px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-yellow:hover {
+    background-color: var(--tb-yellow-hover);
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    display: inline-block;
+    background-color: transparent;
+    color: var(--tb-white);
+    padding: 11px 26px;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-decoration: none;
+    border-radius: 25px;
+    border: 2px solid var(--tb-white);
+    transition: all 0.2s ease;
+}
+
+.btn-outline:hover {
+    background-color: var(--tb-white);
+    color: var(--tb-purple);
+}
+
+.btn-purple {
+    display: inline-block;
+    background-color: var(--tb-purple);
+    color: var(--tb-white);
+    padding: 12px 28px;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    border: none;
+}
+
+.btn-purple:hover {
+    background-color: var(--tb-dark-purple);
+    transform: translateY(-2px);
+}
+
+.btn-purple-sm {
+    display: inline-block;
+    background-color: var(--tb-purple);
+    color: var(--tb-white);
+    padding: 8px 18px;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    border-radius: 20px;
+    transition: background-color 0.2s;
+}
+
+.btn-purple-sm:hover {
+    background-color: var(--tb-black);
+}
+
+/* --------------------------------------------------------------------------
+   5. HERO PROMOTIONAL BANNER SECTION
+   -------------------------------------------------------------------------- */
+.hero-section {
+    background: linear-gradient(135deg, #110316 0%, #3b0d4b 50%, #702082 100%);
+    color: var(--tb-white);
+    padding: 60px 40px 40px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-container {
+    max-width: 1150px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.hero-promo-text {
+    flex: 1;
+}
+
+.hero-subtitle {
+    display: inline-block;
+    background-color: var(--tb-yellow);
+    color: var(--tb-black);
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+    padding: 4px 12px;
+    border-radius: 4px;
     margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.hero-title {
+    font-size: 54px;
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--tb-white);
+    margin-bottom: 14px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.hero-price-badge {
+    margin-bottom: 12px;
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+}
+
+.price-prefix {
+    font-size: 20px;
+    font-weight: 800;
+    color: #ffd633;
     letter-spacing: 1px;
 }
 
-.hero-content p {
-    font-size: 18px;
+.price-amount {
+    font-size: 42px;
+    font-weight: 900;
+    color: var(--tb-yellow);
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.hero-tagline {
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    color: #f0e6f5;
     margin-bottom: 25px;
-    color: #f0f0f0;
+    text-transform: uppercase;
 }
 
-
-/* ==================================================
-   3. MENU SECTION
-   ================================================== */
-.menu-section {
-    padding: 60px 40px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.menu-container {
+.hero-actions {
     display: flex;
-    justify-content: center;
-    gap: 25px;
+    gap: 15px;
     flex-wrap: wrap;
 }
 
-.food-card {
+.hero-image-wrapper {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-food-img {
+    width: 100%;
+    max-width: 480px;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    border: 3px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Slider Indicators (CSS-based visual markers) */
+.slider-indicators {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 30px;
+}
+
+.indicator {
+    width: 32px;
+    height: 4px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 2px;
+}
+
+.indicator.active {
+    background-color: var(--tb-yellow);
+    width: 48px;
+}
+
+/* --------------------------------------------------------------------------
+   6. OUR MENU / THE LINE-UP SECTION
+   -------------------------------------------------------------------------- */
+.menu-section {
+    padding: 70px 40px;
     background-color: #ffffff;
-    border-radius: 12px;
+    max-width: 1250px;
+    margin: 0 auto;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 28px;
+}
+
+.menu-category-card {
+    background-color: #ffffff;
+    border-radius: 16px;
     overflow: hidden;
-    width: 255px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.07);
+    border: 1px solid #f0f0f0;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
     display: flex;
     flex-direction: column;
-    transition: transform 0.3s;
 }
 
-.food-card:hover {
+.menu-category-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(112, 32, 130, 0.15);
+    border-color: #e0d0e6;
+}
+
+.card-image-box {
+    position: relative;
+    width: 100%;
+    height: 190px;
+    overflow: hidden;
+}
+
+.card-image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.35s ease;
+}
+
+.menu-category-card:hover .card-image-box img {
+    transform: scale(1.05);
+}
+
+.category-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background-color: var(--tb-yellow);
+    color: var(--tb-black);
+    font-size: 11px;
+    font-weight: 900;
+    padding: 3px 8px;
+    border-radius: 4px;
+    letter-spacing: 0.5px;
+}
+
+.card-caption {
+    padding: 16px 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #ffffff;
+    border-top: 1px solid #f6f6f6;
+}
+
+.purple-diamond {
+    color: var(--tb-purple);
+    font-size: 12px;
+    line-height: 1;
+}
+
+.card-caption h3 {
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    color: var(--tb-purple);
+    text-transform: uppercase;
+}
+
+/* --------------------------------------------------------------------------
+   7. SPECIAL OFFERS SECTION
+   -------------------------------------------------------------------------- */
+.offers-section {
+    padding: 70px 40px;
+    background-color: #fbf8fc;
+    border-top: 1px solid #f0e6f2;
+    border-bottom: 1px solid #f0e6f2;
+}
+
+.offers-grid {
+    max-width: 1150px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+    gap: 28px;
+}
+
+.offer-box {
+    background-color: var(--tb-white);
+    border-radius: 14px;
+    padding: 28px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+    border-top: 5px solid var(--tb-purple);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.25s ease;
+}
+
+.offer-box:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.offer-badge {
+    display: inline-block;
+    align-self: flex-start;
+    font-size: 11px;
+    font-weight: 900;
+    padding: 4px 10px;
+    border-radius: 4px;
+    letter-spacing: 0.5px;
+    margin-bottom: 14px;
+}
+
+.yellow-badge {
+    background-color: var(--tb-yellow);
+    color: var(--tb-black);
+}
+
+.purple-badge {
+    background-color: var(--tb-purple);
+    color: var(--tb-white);
+}
+
+.offer-box h3 {
+    font-size: 20px;
+    font-weight: 900;
+    color: var(--tb-black);
+    margin-bottom: 10px;
+}
+
+.offer-box p {
+    font-size: 14px;
+    color: var(--tb-text-muted);
+    margin-bottom: 22px;
+    line-height: 1.5;
+}
+
+.offer-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px dashed #e0e0e0;
+    padding-top: 14px;
+}
+
+.promo-code {
+    font-size: 12px;
+    color: var(--tb-purple);
+}
+
+/* --------------------------------------------------------------------------
+   8. NUTRITION INFORMATION SECTION
+   -------------------------------------------------------------------------- */
+.nutrition-section {
+    padding: 70px 40px;
+    background-color: #ffffff;
+}
+
+.nutrition-container {
+    max-width: 1050px;
+    margin: 0 auto;
+}
+
+.nutrition-intro {
+    text-align: center;
+    font-size: 15px;
+    color: var(--tb-text-muted);
+    margin-bottom: 30px;
+    max-width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+    border-radius: 12px;
+    border: 1px solid #eeeeee;
+}
+
+.nutrition-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    background-color: var(--tb-white);
+}
+
+.nutrition-table thead {
+    background-color: var(--tb-purple);
+    color: var(--tb-white);
+}
+
+.nutrition-table th {
+    padding: 14px 18px;
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.nutrition-table td {
+    padding: 13px 18px;
+    font-size: 14px;
+    border-bottom: 1px solid #f0f0f0;
+    color: #444444;
+}
+
+.nutrition-table tbody tr:nth-child(even) {
+    background-color: #faf8fb;
+}
+
+.nutrition-table tbody tr:hover {
+    background-color: #f2e6f5;
+}
+
+.nutrition-disclaimer {
+    font-size: 12px;
+    color: #888888;
+    margin-top: 14px;
+    text-align: center;
+}
+
+/* --------------------------------------------------------------------------
+   9. RESTAURANTS / FIND US SECTION
+   -------------------------------------------------------------------------- */
+.restaurants-section {
+    padding: 70px 40px;
+    background-color: #f7f7f9;
+}
+
+.restaurants-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 26px;
+}
+
+.restaurant-card {
+    background-color: var(--tb-white);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s ease;
+}
+
+.restaurant-card:hover {
     transform: translateY(-5px);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.1);
 }
 
-.food-card img {
+.restaurant-card img {
     width: 100%;
     height: 180px;
     object-fit: cover;
 }
 
-.card-body {
+.restaurant-info {
     padding: 20px;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    text-align: center;
 }
 
-.card-body h3 {
-    color: #702082;
-    margin-bottom: 10px;
-    font-size: 20px;
+.restaurant-info h3 {
+    font-size: 17px;
+    font-weight: 900;
+    color: var(--tb-purple);
+    margin-bottom: 4px;
 }
 
-.card-body p {
-    font-size: 14px;
-    color: #666666;
-    margin-bottom: 20px;
+.restaurant-city {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--tb-yellow-hover);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+}
+
+.restaurant-desc {
+    font-size: 13px;
+    color: var(--tb-text-muted);
+    margin-bottom: 18px;
     flex-grow: 1;
 }
 
-.card-btn {
-    background-color: #702082;
-    color: #ffffff;
-    text-decoration: none;
-    padding: 9px 18px;
-    border-radius: 6px;
-    font-size: 14px;
-    font-weight: bold;
-    transition: background-color 0.3s;
-}
-
-.card-btn:hover {
-    background-color: #e00070;
-}
-
-
-/* ==================================================
-   4. OFFERS SECTION
-   ================================================== */
-.offers-section {
-    background-color: #f0e6f2;
-    padding: 60px 40px;
-}
-
-.offers-container {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    max-width: 1000px;
-    margin: 0 auto;
-    flex-wrap: wrap;
-}
-
-.offer-card {
-    background-color: #ffffff;
-    border-top: 5px solid #e00070;
-    border-radius: 10px;
-    padding: 30px;
-    width: 440px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    position: relative;
-}
-
-.offer-tag {
-    background-color: #e00070;
-    color: #ffffff;
+.btn-find-us {
+    align-self: flex-start;
+    display: inline-block;
+    background-color: var(--tb-black);
+    color: var(--tb-white);
+    padding: 8px 18px;
     font-size: 12px;
-    font-weight: bold;
-    padding: 4px 10px;
-    border-radius: 4px;
-    display: inline-block;
-    margin-bottom: 12px;
-}
-
-.offer-card h3 {
-    color: #702082;
-    font-size: 22px;
-    margin-bottom: 10px;
-}
-
-.offer-card p {
-    font-size: 15px;
-    color: #555555;
-    margin-bottom: 20px;
-}
-
-.offer-btn {
-    display: inline-block;
-    background-color: #111111;
-    color: #ffffff;
-    padding: 10px 20px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
     text-decoration: none;
-    font-size: 13px;
-    font-weight: bold;
-    border-radius: 5px;
-    transition: background-color 0.3s;
+    border-radius: 20px;
+    transition: background-color 0.2s;
 }
 
-.offer-btn:hover {
-    background-color: #e00070;
+.btn-find-us:hover {
+    background-color: var(--tb-purple);
 }
 
-
-/* ==================================================
-   5. ABOUT SECTION
-   ================================================== */
-.about-section {
+/* --------------------------------------------------------------------------
+   10. TACO NEWS / WHAT'S NEW SECTION
+   -------------------------------------------------------------------------- */
+.news-section {
     padding: 70px 40px;
-    max-width: 1100px;
+    background-color: #ffffff;
+}
+
+.news-grid {
+    max-width: 1200px;
     margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 26px;
+}
+
+.news-card {
+    background-color: var(--tb-white);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+    border: 1px solid #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s ease;
+}
+
+.news-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 24px rgba(112, 32, 130, 0.12);
+}
+
+.news-img-wrap {
+    width: 100%;
+    height: 170px;
+}
+
+.news-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.news-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.news-date {
+    font-size: 11px;
+    font-weight: 800;
+    color: var(--tb-purple);
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+}
+
+.news-content h3 {
+    font-size: 17px;
+    font-weight: 900;
+    color: var(--tb-black);
+    margin-bottom: 10px;
+    line-height: 1.3;
+}
+
+.news-content p {
+    font-size: 13px;
+    color: var(--tb-text-muted);
+    margin-bottom: 16px;
+    line-height: 1.5;
+    flex-grow: 1;
+}
+
+.news-link {
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--tb-purple);
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    transition: color 0.2s;
+}
+
+.news-link:hover {
+    color: var(--tb-black);
+}
+
+/* --------------------------------------------------------------------------
+   11. ORDER NOW SECTION
+   -------------------------------------------------------------------------- */
+.order-section {
+    padding: 70px 40px;
+    background: linear-gradient(135deg, #180021 0%, #3d0a4e 100%);
+    color: var(--tb-white);
+}
+
+.order-box-container {
+    max-width: 750px;
+    margin: 0 auto;
+    background-color: rgba(0, 0, 0, 0.45);
+    padding: 40px;
+    border-radius: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.light-header .yellow-kicker {
+    color: var(--tb-yellow);
+}
+
+.light-header .white-title {
+    color: var(--tb-white);
+}
+
+.light-header .yellow-divider {
+    background-color: var(--tb-yellow);
+}
+
+.order-form {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+}
+
+.form-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-group label {
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: #e6e6e6;
+}
+
+.form-group input,
+.form-group select {
+    padding: 12px 14px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: #ffffff;
+    color: #333333;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: var(--tb-yellow);
+}
+
+.form-submit {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.btn-yellow-lg {
+    background-color: var(--tb-yellow);
+    color: var(--tb-black);
+    padding: 14px 44px;
+    font-size: 16px;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.btn-yellow-lg:hover {
+    background-color: var(--tb-yellow-hover);
+    transform: translateY(-2px);
+}
+
+/* --------------------------------------------------------------------------
+   12. ABOUT US SECTION
+   -------------------------------------------------------------------------- */
+.about-section {
+    padding: 80px 40px;
+    background-color: #ffffff;
 }
 
 .about-container {
+    max-width: 1100px;
+    margin: 0 auto;
     display: flex;
     align-items: center;
     gap: 50px;
@@ -293,70 +941,85 @@ body {
 
 .about-image img {
     width: 100%;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    border-radius: 18px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
 }
 
 .about-text {
     flex: 1;
 }
 
-.about-text h2 {
-    color: #702082;
+.about-title {
     font-size: 32px;
-    margin-bottom: 18px;
+    font-weight: 900;
+    color: var(--tb-black);
+    line-height: 1.15;
 }
 
 .about-text p {
     font-size: 15px;
-    color: #555555;
+    color: var(--tb-text-muted);
     margin-bottom: 16px;
+    line-height: 1.6;
 }
 
-.about-text .btn-primary {
+.about-text .btn-purple {
     margin-top: 10px;
 }
 
-
-/* ==================================================
-   6. FOOTER
-   ================================================== */
+/* --------------------------------------------------------------------------
+   13. FOOTER
+   -------------------------------------------------------------------------- */
 .footer {
-    background-color: #111111;
-    color: #ffffff;
-    padding: 50px 40px 20px;
+    background-color: #0d0d0d;
+    color: var(--tb-white);
+    padding: 60px 40px 25px;
 }
 
 .footer-container {
-    max-width: 1100px;
+    max-width: 1150px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
-    gap: 30px;
+    gap: 40px;
     flex-wrap: wrap;
 }
 
 .footer-col {
     flex: 1;
-    min-width: 220px;
+    min-width: 240px;
+}
+
+.footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+.footer-bell {
+    font-size: 24px;
 }
 
 .footer-logo {
     font-size: 24px;
-    color: #ffffff;
-    margin-bottom: 15px;
-    letter-spacing: 1px;
+    font-weight: 900;
+    letter-spacing: 2px;
 }
 
-.footer-col p {
-    font-size: 14px;
-    color: #aaaaaa;
+.footer-tag {
+    font-size: 13px;
+    color: #999999;
+    line-height: 1.6;
 }
 
 .footer-col h4 {
-    font-size: 18px;
-    margin-bottom: 15px;
-    color: #ff99cc;
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: var(--tb-yellow);
+    margin-bottom: 16px;
+    text-transform: uppercase;
 }
 
 .footer-col ul {
@@ -370,44 +1033,148 @@ body {
 .footer-col ul li a {
     color: #cccccc;
     text-decoration: none;
-    font-size: 14px;
-    transition: color 0.3s;
+    font-size: 13px;
+    transition: color 0.2s;
 }
 
 .footer-col ul li a:hover {
-    color: #ffffff;
+    color: var(--tb-yellow);
+}
+
+.social-text-links li a {
+    color: #bbbbbb;
+    font-weight: 600;
 }
 
 .footer-bottom {
     text-align: center;
-    border-top: 1px solid #333333;
-    margin-top: 40px;
-    padding-top: 20px;
-    font-size: 13px;
-    color: #888888;
+    border-top: 1px solid #222222;
+    margin-top: 45px;
+    padding-top: 22px;
+    font-size: 12px;
+    color: #777777;
 }
 
+/* --------------------------------------------------------------------------
+   14. RESPONSIVE DESIGN (TABLETS & MOBILE SCREENS)
+   -------------------------------------------------------------------------- */
+@media (max-width: 850px) {
+    /* Convert fixed left sidebar into sticky top navigation on mobile */
+    .sidebar {
+        position: sticky;
+        top: 0;
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 6px 12px;
+    }
 
-/* ==================================================
-   7. SIMPLE MOBILE MEDIA QUERY (1 simple breakpoint)
-   ================================================== */
-@media (max-width: 768px) {
-    .navbar {
+    .sidebar-logo {
+        padding: 4px 8px;
+        border-bottom: none;
+        display: flex;
+        align-items: center;
+    }
+
+    .sidebar-logo a {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .bell-icon {
+        font-size: 20px;
+        margin-bottom: 0;
+    }
+
+    .logo-text {
+        font-size: 13px;
+        text-align: left;
+    }
+
+    .sidebar-nav {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        gap: 4px;
+        padding: 4px 0;
+    }
+
+    .nav-tab {
+        clip-path: none;
+        border-radius: 4px;
+        padding: 6px 10px;
+        white-space: nowrap;
+    }
+
+    .tab-text {
+        font-size: 11px;
+    }
+
+    /* Main content loses left offset */
+    .main-content {
+        margin-left: 0;
+    }
+
+    /* Adjust Right Social Bar on smaller screens */
+    .social-bar {
+        top: auto;
+        bottom: 20px;
+        right: 15px;
+        flex-direction: row;
+    }
+
+    .social-btn {
+        width: 36px;
+        height: 36px;
+    }
+
+    /* Hero Section adjustments */
+    .hero-container {
         flex-direction: column;
-        gap: 15px;
         text-align: center;
     }
 
-    .nav-links {
-        flex-direction: column;
-        gap: 10px;
+    .hero-title {
+        font-size: 38px;
     }
 
-    .hero-content h1 {
+    .hero-price-badge {
+        justify-content: center;
+    }
+
+    .hero-actions {
+        justify-content: center;
+    }
+
+    /* About container stacks vertically */
+    .about-container {
+        flex-direction: column;
+    }
+
+    /* Form rows become single column */
+    .form-row {
+        flex-direction: column;
+        gap: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
         font-size: 30px;
     }
 
-    .about-container {
-        flex-direction: column;
+    .hero-food-img {
+        height: 220px;
+    }
+
+    .section-title {
+        font-size: 26px;
+    }
+
+    .order-box-container {
+        padding: 24px 16px;
     }
 }
