@@ -1,1226 +1,184 @@
-/* ==========================================================================
-   TACO BELL INDIA CLONE - STYLESHEET
-   Pure Beginner HTML & CSS (No External Libraries, No Frameworks)
-   ========================================================================== */
-
-/* --------------------------------------------------------------------------
-   1. CSS VARIABLES & BASE RESET
-   -------------------------------------------------------------------------- */
-:root {
-    --tb-purple: #702082;          /* Taco Bell Signature Purple */
-    --tb-dark-purple: #4B145C;     /* Deep Taco Bell Purple */
-    --tb-yellow: #F5C400;          /* Taco Bell Accent Yellow */
-    --tb-yellow-hover: #e0b000;    /* Darker Yellow for Hover */
-    --tb-black: #000000;           /* Jet Black */
-    --tb-dark-gray: #161616;       /* Sidebar & Card Dark Gray */
-    --tb-mid-gray: #282828;        /* Tab Separators / Borders */
-    --tb-light-gray: #f7f7f9;      /* Background Light Gray */
-    --tb-white: #ffffff;           /* Clean White */
-    --tb-text-dark: #222222;       /* Body Text */
-    --tb-text-muted: #666666;      /* Subtitles & Descriptions */
-    --tb-border: #e6e6e6;          /* Clean Line Dividers */
-    --sidebar-width: 160px;        /* Desktop Left Sidebar Width */
-}
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 20px;
 }
 
 body {
-    background-color: #ffffff;
-    color: var(--tb-text-dark);
-    line-height: 1.5;
-    overflow-x: hidden;
+    font-family: Arial, sans-serif;
+    background: #f7f7f7;
 }
 
-/* Page Jump Anchor Target Offsets */
-section, footer {
-    scroll-margin-top: 20px;
-}
 
-/* --------------------------------------------------------------------------
-   2. FIXED LEFT SIDEBAR NAVIGATION (DESKTOP)
-   -------------------------------------------------------------------------- */
-.sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: var(--sidebar-width);
+/* LEFT NAVBAR */
+
+.navbar {
+    width: 180px;
     height: 100vh;
-    background-color: var(--tb-black);
-    z-index: 1000;
-    display: flex;
-    flex-direction: column;
-    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
-    overflow-y: auto;
-}
-
-/* Sidebar Logo Header */
-.sidebar-logo {
-    padding: 20px 10px 15px;
-    text-align: center;
-    background-color: var(--tb-black);
-    border-bottom: 2px solid #222222;
-}
-
-.sidebar-logo a {
-    text-decoration: none;
-    display: block;
-}
-
-.bell-icon {
-    font-size: 32px;
-    line-height: 1;
-    margin-bottom: 6px;
-    filter: drop-shadow(0 2px 4px rgba(112, 32, 130, 0.6));
-}
-
-.logo-text {
-    color: var(--tb-white);
-    font-size: 16px;
-    font-weight: 900;
-    letter-spacing: 2px;
-    line-height: 1.15;
-}
-
-/* Slanted / Angled Navigation Tabs */
-.sidebar-nav {
-    display: flex;
-    flex-direction: column;
-    gap: 3px;
-    padding: 10px 6px;
-    flex-grow: 1;
-}
-
-.nav-tab {
-    display: block;
-    background-color: #1a1a1a;
-    color: var(--tb-white);
-    text-decoration: none;
-    padding: 12px 8px;
-    text-align: center;
-    position: relative;
-    /* CSS Clip-Path creates the authentic slanted/angled edge tab */
-    clip-path: polygon(0 0, 100% 4px, 100% 100%, 0 calc(100% - 4px));
-    border-left: 3px solid transparent;
-    transition: all 0.2s ease-in-out;
-}
-
-.tab-text {
-    font-size: 12px;
-    font-weight: 800;
-    letter-spacing: 0.8px;
-    text-transform: uppercase;
-    color: var(--tb-white);
-    display: inline-block;
-}
-
-/* Sidebar Tab Hover & Active States */
-.nav-tab:hover {
-    background-color: var(--tb-purple);
-    border-left: 3px solid var(--tb-yellow);
-    transform: translateX(3px);
-}
-
-.nav-tab:active {
-    background-color: var(--tb-dark-purple);
-}
-
-/* --------------------------------------------------------------------------
-   3. FIXED RIGHT SOCIAL MEDIA BAR
-   -------------------------------------------------------------------------- */
-.social-bar {
+    background: #050505;
     position: fixed;
-    right: 15px;
-    top: 36%;
-    z-index: 999;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+    left: 0;
+    top: 0;
 }
 
-.social-btn {
-    width: 42px;
-    height: 42px;
-    background-color: var(--tb-white);
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #333333;
+.logo {
+    width: 130px;
+    display: block;
+    margin: 25px auto 20px;
+}
+
+.navbar a {
+    display: block;
+    height: 75px;
+
+    color: white;
     text-decoration: none;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
-    transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
-}
 
-.social-btn:hover {
-    transform: scale(1.12);
-    background-color: var(--tb-purple);
-    color: var(--tb-white);
-    box-shadow: 0 6px 16px rgba(112, 32, 130, 0.4);
-}
-
-/* --------------------------------------------------------------------------
-   4. MAIN CONTENT WRAPPER (Offset from fixed sidebar)
-   -------------------------------------------------------------------------- */
-.main-content {
-    margin-left: var(--sidebar-width);
-    min-height: 100vh;
-    background-color: #ffffff;
-}
-
-/* Common Section Header Utilities */
-.section-header {
     text-align: center;
-    margin-bottom: 40px;
+    padding-top: 27px;
+
+    font-size: 18px;
+    font-weight: bold;
+
+    border-top: 2px solid #222;
 }
 
-.section-kicker {
-    font-size: 14px;
-    font-weight: 900;
-    letter-spacing: 2px;
-    color: var(--tb-purple);
-    text-transform: uppercase;
-    margin-bottom: 6px;
+.navbar a:hover {
+    background: #54208f;
 }
 
-.section-title {
-    font-size: 32px;
-    font-weight: 900;
-    letter-spacing: 1px;
-    color: var(--tb-black);
-    text-transform: uppercase;
+
+/* SOCIAL ICONS */
+
+.social {
+    position: fixed;
+    right: 10px;
+    top: 100px;
 }
 
-.title-divider {
-    width: 60px;
-    height: 4px;
-    background-color: var(--tb-purple);
-    margin: 12px auto 0;
-    border-radius: 2px;
-}
+.social a {
+    display: block;
 
-.title-divider-left {
-    width: 50px;
-    height: 4px;
-    background-color: var(--tb-purple);
-    margin: 10px 0 20px;
-    border-radius: 2px;
-}
+    width: 40px;
+    height: 40px;
 
-/* Common Buttons */
-.btn-yellow {
-    display: inline-block;
-    background-color: var(--tb-yellow);
-    color: var(--tb-black);
-    padding: 12px 28px;
-    font-size: 14px;
-    font-weight: 900;
-    letter-spacing: 1px;
-    text-decoration: none;
-    border-radius: 25px;
-    transition: background-color 0.2s ease, transform 0.2s ease;
-    border: none;
-    cursor: pointer;
-}
-
-.btn-yellow:hover {
-    background-color: var(--tb-yellow-hover);
-    transform: translateY(-2px);
-}
-
-.btn-outline {
-    display: inline-block;
-    background-color: transparent;
-    color: var(--tb-white);
-    padding: 11px 26px;
-    font-size: 14px;
-    font-weight: 800;
-    letter-spacing: 1px;
-    text-decoration: none;
-    border-radius: 25px;
-    border: 2px solid var(--tb-white);
-    transition: all 0.2s ease;
-}
-
-.btn-outline:hover {
-    background-color: var(--tb-white);
-    color: var(--tb-purple);
-}
-
-.btn-purple {
-    display: inline-block;
-    background-color: var(--tb-purple);
-    color: var(--tb-white);
-    padding: 12px 28px;
-    font-size: 14px;
-    font-weight: 800;
-    letter-spacing: 1px;
-    text-decoration: none;
-    border-radius: 25px;
-    transition: background-color 0.2s ease, transform 0.2s ease;
-    border: none;
-}
-
-.btn-purple:hover {
-    background-color: var(--tb-dark-purple);
-    transform: translateY(-2px);
-}
-
-.btn-purple-sm {
-    display: inline-block;
-    background-color: var(--tb-purple);
-    color: var(--tb-white);
-    padding: 8px 18px;
-    font-size: 12px;
-    font-weight: 800;
-    letter-spacing: 0.5px;
-    text-decoration: none;
-    border-radius: 20px;
-    transition: background-color 0.2s;
-}
-
-.btn-purple-sm:hover {
-    background-color: var(--tb-black);
-}
-
-/* --------------------------------------------------------------------------
-   5. HERO PROMOTIONAL BANNER SECTION
-   -------------------------------------------------------------------------- */
-.hero-section {
-    background: linear-gradient(135deg, #110316 0%, #3b0d4b 50%, #702082 100%);
-    color: var(--tb-white);
-    padding: 60px 40px 40px;
-    position: relative;
-    overflow: hidden;
-}
-
-.hero-container {
-    max-width: 1150px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 40px;
-}
-
-.hero-promo-text {
-    flex: 1;
-}
-
-.hero-subtitle {
-    display: inline-block;
-    background-color: var(--tb-yellow);
-    color: var(--tb-black);
-    font-size: 13px;
-    font-weight: 900;
-    letter-spacing: 1.5px;
-    padding: 4px 12px;
-    border-radius: 4px;
-    margin-bottom: 15px;
-    text-transform: uppercase;
-}
-
-.hero-title {
-    font-size: 54px;
-    font-weight: 900;
-    line-height: 1.05;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--tb-white);
-    margin-bottom: 14px;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
-}
-
-.hero-price-badge {
     margin-bottom: 12px;
-    display: flex;
-    align-items: baseline;
-    gap: 8px;
+
+    background: white;
+
+    border-radius: 5px;
+
+    box-shadow: 0 2px 5px #aaa;
+
+    text-align: center;
+    padding-top: 8px;
+
+    font-size: 22px;
+    font-weight: bold;
+
+    text-decoration: none;
+    color: black;
 }
 
-.price-prefix {
+.social a:hover {
+    background: #54208f;
+    color: white;
+}
+
+
+/* MAIN */
+
+.main {
+    margin-left: 180px;
+    padding: 30px 70px;
+}
+
+.menu-title {
+    text-align: center;
+    color: #54208f;
     font-size: 20px;
-    font-weight: 800;
-    color: #ffd633;
-    letter-spacing: 1px;
-}
-
-.price-amount {
-    font-size: 42px;
-    font-weight: 900;
-    color: var(--tb-yellow);
-    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
-}
-
-.hero-tagline {
-    font-size: 20px;
-    font-weight: 800;
-    letter-spacing: 3px;
-    color: #f0e6f5;
+    font-weight: bold;
     margin-bottom: 25px;
-    text-transform: uppercase;
 }
 
-.hero-actions {
-    display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
-}
-
-.hero-image-wrapper {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-}
-
-.hero-food-img {
-    width: 100%;
-    max-width: 480px;
-    height: 320px;
-    object-fit: cover;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-    border: 3px solid rgba(255, 255, 255, 0.15);
-}
-
-/* Slider Indicators (CSS-based visual markers) */
-.slider-indicators {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 30px;
-}
-
-.indicator {
-    width: 32px;
-    height: 4px;
-    background-color: rgba(255, 255, 255, 0.3);
-    border-radius: 2px;
-}
-
-.indicator.active {
-    background-color: var(--tb-yellow);
-    width: 48px;
-}
-
-/* --------------------------------------------------------------------------
-   6. OUR MENU / THE LINE-UP SECTION
-   -------------------------------------------------------------------------- */
-.menu-section {
-    padding: 70px 40px;
-    background-color: #ffffff;
-    max-width: 1250px;
-    margin: 0 auto;
-}
-
-.menu-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 28px;
-}
-
-.menu-category-card {
-    background-color: #ffffff;
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.07);
-    border: 1px solid #f0f0f0;
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-    display: flex;
-    flex-direction: column;
-}
-
-.menu-category-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 28px rgba(112, 32, 130, 0.15);
-    border-color: #e0d0e6;
-}
-
-.card-image-box {
-    position: relative;
-    width: 100%;
-    height: 190px;
-    overflow: hidden;
-}
-
-.card-image-box img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.35s ease;
-}
-
-.menu-category-card:hover .card-image-box img {
-    transform: scale(1.05);
-}
-
-.category-badge {
-    position: absolute;
-    top: 12px;
-    right: 12px;
-    background-color: var(--tb-yellow);
-    color: var(--tb-black);
-    font-size: 11px;
-    font-weight: 900;
-    padding: 3px 8px;
-    border-radius: 4px;
-    letter-spacing: 0.5px;
-}
-
-.card-caption {
-    padding: 16px 14px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    background-color: #ffffff;
-    border-top: 1px solid #f6f6f6;
-}
-
-.purple-diamond {
-    color: var(--tb-purple);
-    font-size: 12px;
-    line-height: 1;
-}
-
-.card-caption h3 {
-    font-size: 14px;
-    font-weight: 800;
-    letter-spacing: 0.5px;
-    color: var(--tb-purple);
-    text-transform: uppercase;
-}
-
-/* --------------------------------------------------------------------------
-   7. SPECIAL OFFERS SECTION
-   -------------------------------------------------------------------------- */
-.offers-section {
-    padding: 70px 40px;
-    background-color: #fbf8fc;
-    border-top: 1px solid #f0e6f2;
-    border-bottom: 1px solid #f0e6f2;
-}
-
-.offers-grid {
-    max-width: 1150px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
-    gap: 28px;
-}
-
-.offer-box {
-    background-color: var(--tb-white);
-    border-radius: 14px;
-    padding: 28px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
-    border-top: 5px solid var(--tb-purple);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    transition: transform 0.25s ease;
-}
-
-.offer-box:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-}
-
-.offer-badge {
-    display: inline-block;
-    align-self: flex-start;
-    font-size: 11px;
-    font-weight: 900;
-    padding: 4px 10px;
-    border-radius: 4px;
-    letter-spacing: 0.5px;
-    margin-bottom: 14px;
-}
-
-.yellow-badge {
-    background-color: var(--tb-yellow);
-    color: var(--tb-black);
-}
-
-.purple-badge {
-    background-color: var(--tb-purple);
-    color: var(--tb-white);
-}
-
-.offer-box h3 {
-    font-size: 20px;
-    font-weight: 900;
-    color: var(--tb-black);
-    margin-bottom: 10px;
-}
-
-.offer-box p {
-    font-size: 14px;
-    color: var(--tb-text-muted);
-    margin-bottom: 22px;
-    line-height: 1.5;
-}
-
-.offer-meta {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-top: 1px dashed #e0e0e0;
-    padding-top: 14px;
-}
-
-.promo-code {
-    font-size: 12px;
-    color: var(--tb-purple);
-}
-
-/* --------------------------------------------------------------------------
-   8. NUTRITION INFORMATION SECTION
-   -------------------------------------------------------------------------- */
-.nutrition-section {
-    padding: 70px 40px;
-    background-color: #ffffff;
-}
-
-.nutrition-container {
-    max-width: 1050px;
-    margin: 0 auto;
-}
-
-.nutrition-intro {
+h1 {
     text-align: center;
-    font-size: 15px;
-    color: var(--tb-text-muted);
-    margin-bottom: 30px;
-    max-width: 750px;
-    margin-left: auto;
-    margin-right: auto;
+    font-size: 50px;
+    margin-bottom: 60px;
 }
 
-.table-responsive {
-    width: 100%;
-    overflow-x: auto;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
-    border-radius: 12px;
-    border: 1px solid #eeeeee;
+
+/* FOOD */
+
+.food {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 55px 45px;
 }
 
-.nutrition-table {
-    width: 100%;
-    border-collapse: collapse;
-    text-align: left;
-    background-color: var(--tb-white);
-}
-
-.nutrition-table thead {
-    background-color: var(--tb-purple);
-    color: var(--tb-white);
-}
-
-.nutrition-table th {
-    padding: 14px 18px;
-    font-size: 13px;
-    font-weight: 900;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-}
-
-.nutrition-table td {
-    padding: 13px 18px;
-    font-size: 14px;
-    border-bottom: 1px solid #f0f0f0;
-    color: #444444;
-}
-
-.nutrition-table tbody tr:nth-child(even) {
-    background-color: #faf8fb;
-}
-
-.nutrition-table tbody tr:hover {
-    background-color: #f2e6f5;
-}
-
-.nutrition-disclaimer {
-    font-size: 12px;
-    color: #888888;
-    margin-top: 14px;
+.card {
     text-align: center;
 }
 
-/* --------------------------------------------------------------------------
-   9. RESTAURANTS / FIND US SECTION
-   -------------------------------------------------------------------------- */
-.restaurants-section {
-    padding: 70px 40px;
-    background-color: #f7f7f9;
-}
-
-.restaurants-grid {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 26px;
-}
-
-.restaurant-card {
-    background-color: var(--tb-white);
-    border-radius: 14px;
-    overflow: hidden;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.25s ease;
-}
-
-.restaurant-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.1);
-}
-
-.restaurant-card img {
+.card img {
     width: 100%;
-    height: 180px;
+    height: 280px;
     object-fit: cover;
+    border-radius: 15px;
 }
 
-.restaurant-info {
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
+.card h2 {
+    margin-top: 20px;
+    font-size: 18px;
+    letter-spacing: 3px;
 }
 
-.restaurant-info h3 {
-    font-size: 17px;
-    font-weight: 900;
-    color: var(--tb-purple);
-    margin-bottom: 4px;
-}
 
-.restaurant-city {
-    font-size: 12px;
-    font-weight: 700;
-    color: var(--tb-yellow-hover);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-bottom: 8px;
-}
+/* MOBILE */
 
-.restaurant-desc {
-    font-size: 13px;
-    color: var(--tb-text-muted);
-    margin-bottom: 18px;
-    flex-grow: 1;
-}
+@media (max-width: 900px) {
 
-.btn-find-us {
-    align-self: flex-start;
-    display: inline-block;
-    background-color: var(--tb-black);
-    color: var(--tb-white);
-    padding: 8px 18px;
-    font-size: 12px;
-    font-weight: 800;
-    letter-spacing: 0.5px;
-    text-decoration: none;
-    border-radius: 20px;
-    transition: background-color 0.2s;
-}
-
-.btn-find-us:hover {
-    background-color: var(--tb-purple);
-}
-
-/* --------------------------------------------------------------------------
-   10. TACO NEWS / WHAT'S NEW SECTION
-   -------------------------------------------------------------------------- */
-.news-section {
-    padding: 70px 40px;
-    background-color: #ffffff;
-}
-
-.news-grid {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 26px;
-}
-
-.news-card {
-    background-color: var(--tb-white);
-    border-radius: 14px;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
-    border: 1px solid #f0f0f0;
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.25s ease;
-}
-
-.news-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 24px rgba(112, 32, 130, 0.12);
-}
-
-.news-img-wrap {
-    width: 100%;
-    height: 170px;
-}
-
-.news-img-wrap img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.news-content {
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-}
-
-.news-date {
-    font-size: 11px;
-    font-weight: 800;
-    color: var(--tb-purple);
-    letter-spacing: 1px;
-    margin-bottom: 6px;
-}
-
-.news-content h3 {
-    font-size: 17px;
-    font-weight: 900;
-    color: var(--tb-black);
-    margin-bottom: 10px;
-    line-height: 1.3;
-}
-
-.news-content p {
-    font-size: 13px;
-    color: var(--tb-text-muted);
-    margin-bottom: 16px;
-    line-height: 1.5;
-    flex-grow: 1;
-}
-
-.news-link {
-    font-size: 13px;
-    font-weight: 800;
-    color: var(--tb-purple);
-    text-decoration: none;
-    letter-spacing: 0.5px;
-    transition: color 0.2s;
-}
-
-.news-link:hover {
-    color: var(--tb-black);
-}
-
-/* --------------------------------------------------------------------------
-   11. ORDER NOW SECTION
-   -------------------------------------------------------------------------- */
-.order-section {
-    padding: 70px 40px;
-    background: linear-gradient(135deg, #180021 0%, #3d0a4e 100%);
-    color: var(--tb-white);
-}
-
-.order-box-container {
-    max-width: 750px;
-    margin: 0 auto;
-    background-color: rgba(0, 0, 0, 0.45);
-    padding: 40px;
-    border-radius: 18px;
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-}
-
-.light-header .yellow-kicker {
-    color: var(--tb-yellow);
-}
-
-.light-header .white-title {
-    color: var(--tb-white);
-}
-
-.light-header .yellow-divider {
-    background-color: var(--tb-yellow);
-}
-
-.order-form {
-    margin-top: 25px;
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-}
-
-.form-row {
-    display: flex;
-    gap: 20px;
-}
-
-.form-group {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-}
-
-.form-group label {
-    font-size: 13px;
-    font-weight: 800;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    color: #e6e6e6;
-}
-
-.form-group input,
-.form-group select {
-    padding: 12px 14px;
-    border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    background-color: #ffffff;
-    color: #333333;
-    font-size: 14px;
-    outline: none;
-    transition: border-color 0.2s;
-}
-
-.form-group input:focus,
-.form-group select:focus {
-    border-color: var(--tb-yellow);
-}
-
-.form-submit {
-    text-align: center;
-    margin-top: 10px;
-}
-
-.btn-yellow-lg {
-    background-color: var(--tb-yellow);
-    color: var(--tb-black);
-    padding: 14px 44px;
-    font-size: 16px;
-    font-weight: 900;
-    letter-spacing: 1.5px;
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: background-color 0.2s, transform 0.2s;
-}
-
-.btn-yellow-lg:hover {
-    background-color: var(--tb-yellow-hover);
-    transform: translateY(-2px);
-}
-
-/* --------------------------------------------------------------------------
-   12. ABOUT US SECTION
-   -------------------------------------------------------------------------- */
-.about-section {
-    padding: 80px 40px;
-    background-color: #ffffff;
-}
-
-.about-container {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    gap: 50px;
-}
-
-.about-image {
-    flex: 1;
-}
-
-.about-image img {
-    width: 100%;
-    border-radius: 18px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-}
-
-.about-text {
-    flex: 1;
-}
-
-.about-title {
-    font-size: 32px;
-    font-weight: 900;
-    color: var(--tb-black);
-    line-height: 1.15;
-}
-
-.about-text p {
-    font-size: 15px;
-    color: var(--tb-text-muted);
-    margin-bottom: 16px;
-    line-height: 1.6;
-}
-
-.about-text .btn-purple {
-    margin-top: 10px;
-}
-
-/* --------------------------------------------------------------------------
-   13. FOOTER
-   -------------------------------------------------------------------------- */
-.footer {
-    background-color: #0d0d0d;
-    color: var(--tb-white);
-    padding: 60px 40px 25px;
-}
-
-.footer-container {
-    max-width: 1150px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    gap: 40px;
-    flex-wrap: wrap;
-}
-
-.footer-col {
-    flex: 1;
-    min-width: 240px;
-}
-
-.footer-brand {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 14px;
-}
-
-.footer-bell {
-    font-size: 24px;
-}
-
-.footer-logo {
-    font-size: 24px;
-    font-weight: 900;
-    letter-spacing: 2px;
-}
-
-.footer-tag {
-    font-size: 13px;
-    color: #999999;
-    line-height: 1.6;
-}
-
-.footer-col h4 {
-    font-size: 16px;
-    font-weight: 800;
-    letter-spacing: 1px;
-    color: var(--tb-yellow);
-    margin-bottom: 16px;
-    text-transform: uppercase;
-}
-
-.footer-col ul {
-    list-style: none;
-}
-
-.footer-col ul li {
-    margin-bottom: 10px;
-}
-
-.footer-col ul li a {
-    color: #cccccc;
-    text-decoration: none;
-    font-size: 13px;
-    transition: color 0.2s;
-}
-
-.footer-col ul li a:hover {
-    color: var(--tb-yellow);
-}
-
-.social-text-links li a {
-    color: #bbbbbb;
-    font-weight: 600;
-}
-
-.footer-bottom {
-    text-align: center;
-    border-top: 1px solid #222222;
-    margin-top: 45px;
-    padding-top: 22px;
-    font-size: 12px;
-    color: #777777;
-}
-
-/* --------------------------------------------------------------------------
-   14. FLOATING PAGE JUMP BUTTON
-   -------------------------------------------------------------------------- */
-.jump-top-btn {
-    position: fixed;
-    bottom: 24px;
-    right: 15px;
-    z-index: 998;
-    background-color: var(--tb-purple);
-    color: var(--tb-white);
-    text-decoration: none;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 44px;
-    height: 44px;
-    border-radius: 8px;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
-    font-size: 11px;
-    font-weight: 900;
-    line-height: 1.1;
-    border: 2px solid var(--tb-yellow);
-    transition: transform 0.2s ease, background-color 0.2s ease;
-}
-
-.jump-top-btn:hover {
-    background-color: var(--tb-yellow);
-    color: var(--tb-black);
-    transform: translateY(-4px);
-}
-
-/* --------------------------------------------------------------------------
-   15. RESPONSIVE DESIGN (TABLETS & MOBILE SCREENS)
-   -------------------------------------------------------------------------- */
-@media (max-width: 850px) {
-    html {
-        scroll-padding-top: 65px;
+    .navbar {
+        width: 130px;
     }
 
-    section, footer {
-        scroll-margin-top: 65px;
+    .main {
+        margin-left: 130px;
+        padding: 25px;
     }
 
-    /* Convert fixed left sidebar into sticky top navigation on mobile */
-    .sidebar {
-        position: sticky;
-        top: 0;
-        width: 100%;
-        height: auto;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        padding: 6px 12px;
+    .food {
+        grid-template-columns: repeat(2, 1fr);
     }
 
-    .sidebar-logo {
-        padding: 4px 8px;
-        border-bottom: none;
-        display: flex;
-        align-items: center;
+    .navbar a {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .navbar {
+        width: 100px;
     }
 
-    .sidebar-logo a {
-        display: flex;
-        align-items: center;
-        gap: 8px;
+    .logo {
+        width: 70px;
     }
 
-    .bell-icon {
-        font-size: 20px;
-        margin-bottom: 0;
-    }
-
-    .logo-text {
-        font-size: 13px;
-        text-align: left;
-    }
-
-    .sidebar-nav {
-        flex-direction: row;
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        gap: 4px;
-        padding: 4px 0;
-    }
-
-    .nav-tab {
-        clip-path: none;
-        border-radius: 4px;
-        padding: 6px 10px;
-        white-space: nowrap;
-    }
-
-    .tab-text {
+    .navbar a {
         font-size: 11px;
     }
 
-    /* Main content loses left offset */
-    .main-content {
-        margin-left: 0;
+    .main {
+        margin-left: 100px;
     }
 
-    /* Adjust Right Social Bar on smaller screens */
-    .social-bar {
-        top: auto;
-        bottom: 80px;
-        right: 15px;
-        flex-direction: column;
+    .food {
+        grid-template-columns: 1fr;
     }
 
-    .social-btn {
-        width: 38px;
-        height: 38px;
-    }
-
-    /* Hero Section adjustments */
-    .hero-container {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .hero-title {
-        font-size: 38px;
-    }
-
-    .hero-price-badge {
-        justify-content: center;
-    }
-
-    .hero-actions {
-        justify-content: center;
-    }
-
-    /* About container stacks vertically */
-    .about-container {
-        flex-direction: column;
-    }
-
-    /* Form rows become single column */
-    .form-row {
-        flex-direction: column;
-        gap: 14px;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero-title {
+    h1 {
         font-size: 30px;
-    }
-
-    .hero-food-img {
-        height: 220px;
-    }
-
-    .section-title {
-        font-size: 26px;
-    }
-
-    .order-box-container {
-        padding: 24px 16px;
     }
 }

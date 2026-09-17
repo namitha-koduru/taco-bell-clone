@@ -1,637 +1,84 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Taco Bell India | Live Más</title>
+    <title>Taco Bell</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <!-- ==================================================
-         1. FIXED LEFT SIDEBAR NAVIGATION
-         ================================================== -->
-    <aside class="sidebar">
-        <!-- Taco Bell Brand Logo Area -->
-        <div class="sidebar-logo">
-            <a href="#hero">
-                <div class="bell-icon">🔔</div>
-                <div class="logo-text">TACO<br>BELL</div>
-            </a>
+    <!-- LEFT NAVBAR -->
+    <div class="navbar">
+
+        <img src="images/logo.png" class="logo">
+
+        <a href="#" onclick="order()">ORDER NOW</a>
+        <a href="#food">OUR FOOD</a>
+        <a href="#" onclick="findUs()">FIND US</a>
+        <a href="#" onclick="nutrition()">NUTRITION</a>
+        <a href="#" onclick="about()">ABOUT US</a>
+        <a href="#new">WHAT'S NEW</a>
+        <a href="#" onclick="more()">MORE +</a>
+
+    </div>
+
+
+    <!-- RIGHT SOCIAL ICONS -->
+    <div class="social">
+
+        <a href="https://www.facebook.com/" target="_blank">f</a>
+
+        <a href="https://www.instagram.com/" target="_blank">◎</a>
+
+        <a href="https://x.com/" target="_blank">X</a>
+
+    </div>
+
+
+    <!-- MAIN CONTENT -->
+    <div class="main">
+
+        <p class="menu-title">OUR MENU</p>
+
+        <h1>THE LINE-UP</h1>
+
+        <div class="food" id="food">
+
+            <div class="card" id="new">
+                <img src="images/food1.jpg">
+                <h2>NEWLY LAUNCHED</h2>
+            </div>
+
+            <div class="card">
+                <img src="images/food2.jpg">
+                <h2>BIG BELL BOX COMBOS</h2>
+            </div>
+
+            <div class="card">
+                <img src="images/food3.jpg">
+                <h2>EVERY DAY BEST VALUE</h2>
+            </div>
+
+            <div class="card">
+                <img src="images/food4.jpg">
+                <h2>MEAL MANIA</h2>
+            </div>
+
+            <div class="card">
+                <img src="images/food5.jpg">
+                <h2>BIG SAVING COMBOS</h2>
+            </div>
+
+            <div class="card">
+                <img src="images/food6.jpg">
+                <h2>TACOS & CHALUPAS</h2>
+            </div>
+
         </div>
 
-        <!-- Slanted / Angled Navigation Tabs -->
-        <nav class="sidebar-nav">
-            <a href="#order" class="nav-tab">
-                <span class="tab-text">ORDER NOW</span>
-            </a>
-            <a href="#menu" class="nav-tab">
-                <span class="tab-text">OUR FOOD</span>
-            </a>
-            <a href="#restaurants" class="nav-tab">
-                <span class="tab-text">FIND US</span>
-            </a>
-            <a href="#nutrition" class="nav-tab">
-                <span class="tab-text">NUTRITION</span>
-            </a>
-            <a href="#about" class="nav-tab">
-                <span class="tab-text">ABOUT US</span>
-            </a>
-            <a href="#news" class="nav-tab">
-                <span class="tab-text">WHAT'S NEW</span>
-            </a>
-            <a href="#offers" class="nav-tab">
-                <span class="tab-text">MORE +</span>
-            </a>
-        </nav>
-    </aside>
+    </div>
 
-
-    <!-- ==================================================
-         2. FIXED RIGHT SOCIAL MEDIA BAR
-         ================================================== -->
-    <aside class="social-bar">
-        <!-- Facebook Link -->
-        <a href="https://www.facebook.com/tacobellindia" target="_blank" rel="noopener noreferrer" class="social-btn" title="Facebook">
-            <svg class="social-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-                <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/>
-            </svg>
-        </a>
-
-        <!-- Instagram Link -->
-        <a href="https://www.instagram.com/tacobell_india" target="_blank" rel="noopener noreferrer" class="social-btn" title="Instagram">
-            <svg class="social-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-            </svg>
-        </a>
-
-        <!-- X (Twitter) Link -->
-        <a href="https://twitter.com/tacobellindia" target="_blank" rel="noopener noreferrer" class="social-btn" title="X (Twitter)">
-            <svg class="social-icon" viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
-                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-            </svg>
-        </a>
-    </aside>
-
-
-    <!-- ==================================================
-         3. MAIN WEBSITE CONTENT AREA (Offset from sidebar)
-         ================================================== -->
-    <main class="main-content">
-
-        <!-- HERO PROMOTIONAL BANNER SECTION -->
-        <section id="hero" class="hero-section">
-            <div class="hero-container">
-                <!-- Promo Text Overlay -->
-                <div class="hero-promo-text">
-                    <span class="hero-subtitle">EVERYDAY CRAVINGS VALUE</span>
-                    <h1 class="hero-title">MEAL MANIA</h1>
-                    <div class="hero-price-badge">
-                        <span class="price-prefix">STARTS @</span>
-                        <span class="price-amount">₹89*</span>
-                    </div>
-                    <p class="hero-tagline">IT'S FEELNTASTIC</p>
-                    <div class="hero-actions">
-                        <a href="#order" class="btn-yellow">ORDER NOW</a>
-                        <a href="#menu" class="btn-outline">EXPLORE MENU</a>
-                    </div>
-                </div>
-
-                <!-- Food Visual Area -->
-                <div class="hero-image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?w=800&auto=format&fit=crop&q=80" alt="Delicious Taco Bell Meal Mania" class="hero-food-img">
-                </div>
-            </div>
-
-            <!-- CSS Slider Indicator Bars -->
-            <div class="slider-indicators">
-                <span class="indicator active"></span>
-                <span class="indicator"></span>
-                <span class="indicator"></span>
-            </div>
-        </section>
-
-
-        <!-- OUR MENU / THE LINE-UP SECTION -->
-        <section id="menu" class="menu-section">
-            <div class="section-header">
-                <h3 class="section-kicker">OUR MENU</h3>
-                <h2 class="section-title">THE LINE-UP</h2>
-                <div class="title-divider"></div>
-            </div>
-
-            <!-- 11 Taco Bell India Menu Categories Grid -->
-            <div class="menu-grid">
-                
-                <!-- Category 1: Newly Launched -->
-                <div class="menu-category-card">
-                    <div class="card-image-box">
-                        <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=600&auto=format&fit=crop&q=80" alt="Newly Launched">
-                        <span class="category-badge">NEW</span>
-                    </div>
-                    <div class="card-caption">
-                        <span class="purple-diamond">◆</span>
-                        <h3>NEWLY LAUNCHED</h3>
-                    </div>
-                </div>
-
-                <!-- Category 2: Big Bell Box Combos -->
-                <div class="menu-category-card">
-                    <div class="card-image-box">
-                        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&auto=format&fit=crop&q=80" alt="Big Bell Box Combos">
-                        <span class="category-badge">POPULAR</span>
-                    </div>
-                    <div class="card-caption">
-                        <span class="purple-diamond">◆</span>
-                        <h3>BIG BELL BOX COMBOS</h3>
-                    </div>
-                </div>
-
-                <!-- Category 3: Every Day Best Value -->
-                <div class="menu-category-card">
-                    <div class="card-image-box">
-                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&auto=format&fit=crop&q=80" alt="Every Day Best Value">
-                    </div>
-                    <div class="card-caption">
-                        <span class="purple-diamond">◆</span>
-                        <h3>EVERY DAY BEST VALUE</h3>
-                    </div>
-                </div>
-
-                <!-- Category 4: Meal Mania -->
-                <div class="menu-category-card">
-                    <div class="card-image-box">
-                        <img src="https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?w=600&auto=format&fit=crop&q=80" alt="Meal Mania">
-                        <span class="category-badge">@ ₹89</span>
-                    </div>
-                    <div class="card-caption">
-                        <span class="purple-diamond">◆</span>
-                        <h3>MEAL MANIA</h3>
-                    </div>
-                </div>
-
-                <!-- Category 5: Big Saving Combos -->
-                <div class="menu-category-card">
-                    <div class="card-image-box">
-                        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600&auto=format&fit=crop&q=80" alt="Big Saving Combos">
-                    </div>
-                    <div class="card-caption">
-                        <span class="purple-diamond">◆</span>
-                        <h3>BIG SAVING COMBOS</h3>
-                    </div>
-                </div>
-
-                <!-- Category 6: Taco & Chalupa -->
-                <div class="menu-category-card">
-                    <div class="card-image-box">
-                        <img src="https://images.unsplash.com/photo-1552332386-f8dd00dc2f85?w=600&auto=format&fit=crop&q=80" alt="Taco and Chalupa">
-                    </div>
-                    <div class="card-caption">
-                        <span class="purple-diamond">◆</span>
-                        <h3>TACO &amp; CHALUPA</h3>
-                    </div>
-                </div>
-
-                <!-- Category 7: Burrito & Wraps -->
-                <div class="menu-category-card">
-                    <div class="card-image-box">
-                        <img src="https://images.unsplash.com/photo-1626700051175-6818013e1d4f?w=600&auto=format&fit=crop&q=80" alt="Burrito and Wraps">
-                    </div>
-                    <div class="card-caption">
-                        <span class="purple-diamond">◆</span>
-                        <h3>BURRITO &amp; WRAPS</h3>
-                    </div>
-                </div>
-
-                <!-- Category 8: Rice Bowls -->
-                <div class="menu-category-card">
-                    <div class="card-image-box">
-                        <img src="https://images.unsplash.com/photo-1543339308-43e59d6b73a6?w=600&auto=format&fit=crop&q=80" alt="Rice Bowls">
-                    </div>
-                    <div class="card-caption">
-                        <span class="purple-diamond">◆</span>
-                        <h3>RICE BOWLS</h3>
-                    </div>
-                </div>
-
-                <!-- Category 9: Quesadilla -->
-                <div class="menu-category-card">
-                    <div class="card-image-box">
-                        <img src="https://images.unsplash.com/photo-1618040996337-56904b7850b9?w=600&auto=format&fit=crop&q=80" alt="Quesadilla">
-                    </div>
-                    <div class="card-caption">
-                        <span class="purple-diamond">◆</span>
-                        <h3>QUESADILLA</h3>
-                    </div>
-                </div>
-
-                <!-- Category 10: Beverages -->
-                <div class="menu-category-card">
-                    <div class="card-image-box">
-                        <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=600&auto=format&fit=crop&q=80" alt="Beverages">
-                    </div>
-                    <div class="card-caption">
-                        <span class="purple-diamond">◆</span>
-                        <h3>BEVERAGES</h3>
-                    </div>
-                </div>
-
-                <!-- Category 11: Desserts, Sides & Dip -->
-                <div class="menu-category-card">
-                    <div class="card-image-box">
-                        <img src="https://images.unsplash.com/photo-1513456852971-30c0b8199d4d?w=600&auto=format&fit=crop&q=80" alt="Desserts, Sides & Dip">
-                    </div>
-                    <div class="card-caption">
-                        <span class="purple-diamond">◆</span>
-                        <h3>DESSERTS, SIDES &amp; DIP</h3>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-
-        <!-- SPECIAL OFFERS SECTION -->
-        <section id="offers" class="offers-section">
-            <div class="section-header">
-                <h3 class="section-kicker">SPECIAL OFFERS</h3>
-                <h2 class="section-title">DON'T MISS OUT ON EXCLUSIVE OFFERS</h2>
-                <div class="title-divider"></div>
-            </div>
-
-            <div class="offers-grid">
-                <!-- Offer Card 1 -->
-                <div class="offer-box">
-                    <div class="offer-badge yellow-badge">FLAT 50% OFF</div>
-                    <h3>MEAL FOR TWO DEAL</h3>
-                    <p>Get 2 Crunchy Tacos, 1 Cheesy Quesadilla, Seasoned Nachos and 2 Chilled Beverages at half price!</p>
-                    <div class="offer-meta">
-                        <span class="promo-code">CODE: <strong>TACO50</strong></span>
-                        <a href="#order" class="btn-purple-sm">CLAIM OFFER</a>
-                    </div>
-                </div>
-
-                <!-- Offer Card 2 -->
-                <div class="offer-box">
-                    <div class="offer-badge purple-badge">FREE ITEM</div>
-                    <h3>WEEKEND CRUNCH COMBO</h3>
-                    <p>Order any Big Bell Box or Big Saving Combo and unlock Loaded Cheesy Nachos completely free.</p>
-                    <div class="offer-meta">
-                        <span class="promo-code">CODE: <strong>CRUNCHFREE</strong></span>
-                        <a href="#order" class="btn-purple-sm">CLAIM OFFER</a>
-                    </div>
-                </div>
-
-                <!-- Offer Card 3 -->
-                <div class="offer-box">
-                    <div class="offer-badge yellow-badge">EVERYDAY VALUE</div>
-                    <h3>MEAL MANIA DELIGHT</h3>
-                    <p>Starting at just ₹89! Choose from Crunchy Taco, Mexican Rice, or Churros and enjoy bold craveable flavor.</p>
-                    <div class="offer-meta">
-                        <span class="promo-code">STARTS @ <strong>₹89</strong></span>
-                        <a href="#order" class="btn-purple-sm">CLAIM OFFER</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-        <!-- NUTRITION INFORMATION SECTION -->
-        <section id="nutrition" class="nutrition-section">
-            <div class="section-header">
-                <h3 class="section-kicker">NUTRITION &amp; INGREDIENTS</h3>
-                <h2 class="section-title">KNOW WHAT YOU CRAVE</h2>
-                <div class="title-divider"></div>
-            </div>
-
-            <div class="nutrition-container">
-                <p class="nutrition-intro">We believe in transparent, customizable food crafted fresh to order. Explore the approximate nutritional breakdown of our most popular items below.</p>
-                
-                <div class="table-responsive">
-                    <table class="nutrition-table">
-                        <thead>
-                            <tr>
-                                <th>MENU ITEM</th>
-                                <th>SERVING SIZE</th>
-                                <th>ENERGY (KCAL)</th>
-                                <th>PROTEIN (G)</th>
-                                <th>TOTAL FAT (G)</th>
-                                <th>CARBS (G)</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>Crunchy Taco (Pinto Bean / Veg)</strong></td>
-                                <td>110 g</td>
-                                <td>170 kcal</td>
-                                <td>5.2 g</td>
-                                <td>8.5 g</td>
-                                <td>18.0 g</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Crunchy Taco Supreme (Chicken)</strong></td>
-                                <td>135 g</td>
-                                <td>210 kcal</td>
-                                <td>11.0 g</td>
-                                <td>10.5 g</td>
-                                <td>16.5 g</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Loaded Veggie Burrito</strong></td>
-                                <td>220 g</td>
-                                <td>350 kcal</td>
-                                <td>9.8 g</td>
-                                <td>11.2 g</td>
-                                <td>52.0 g</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Cheesy Quesadilla</strong></td>
-                                <td>180 g</td>
-                                <td>410 kcal</td>
-                                <td>14.5 g</td>
-                                <td>21.0 g</td>
-                                <td>40.5 g</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Loaded Nachos with Warm Cheese</strong></td>
-                                <td>160 g</td>
-                                <td>300 kcal</td>
-                                <td>6.0 g</td>
-                                <td>15.0 g</td>
-                                <td>35.0 g</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Mexican Rice Bowl</strong></td>
-                                <td>260 g</td>
-                                <td>380 kcal</td>
-                                <td>8.5 g</td>
-                                <td>12.0 g</td>
-                                <td>58.0 g</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <p class="nutrition-disclaimer">*Note: Demo nutritional values provided for informational clone demonstration. Actual values may vary based on customisation and preparation.</p>
-            </div>
-        </section>
-
-
-        <!-- RESTAURANTS / FIND US SECTION -->
-        <section id="restaurants" class="restaurants-section">
-            <div class="section-header">
-                <h3 class="section-kicker">FIND US</h3>
-                <h2 class="section-title">OUR RESTAURANTS</h2>
-                <div class="title-divider"></div>
-            </div>
-
-            <div class="restaurants-grid">
-                <!-- Location 1 -->
-                <div class="restaurant-card">
-                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&auto=format&fit=crop&q=80" alt="Connaught Place Delhi">
-                    <div class="restaurant-info">
-                        <h3>CONNAUGHT PLACE, DELHI</h3>
-                        <p class="restaurant-city">Delhi NCR</p>
-                        <p class="restaurant-desc">Inner Circle, Block N, Near Rajiv Chowk Metro Station.</p>
-                        <a href="#order" class="btn-find-us">FIND US</a>
-                    </div>
-                </div>
-
-                <!-- Location 2 -->
-                <div class="restaurant-card">
-                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&auto=format&fit=crop&q=80" alt="Cyber Hub Gurugram">
-                    <div class="restaurant-info">
-                        <h3>CYBER HUB, GURUGRAM</h3>
-                        <p class="restaurant-city">Haryana</p>
-                        <p class="restaurant-desc">Ground Floor, DLF Cyber Hub, DLF Cyber City, Sector 24.</p>
-                        <a href="#order" class="btn-find-us">FIND US</a>
-                    </div>
-                </div>
-
-                <!-- Location 3 -->
-                <div class="restaurant-card">
-                    <img src="https://images.unsplash.com/photo-1590846406792-0adc7f938f1d?w=600&auto=format&fit=crop&q=80" alt="Nehru Place Delhi">
-                    <div class="restaurant-info">
-                        <h3>NEHRU PLACE, DELHI</h3>
-                        <p class="restaurant-city">Delhi NCR</p>
-                        <p class="restaurant-desc">Epicuria Food Mall, Metro Station Complex, Nehru Place.</p>
-                        <a href="#order" class="btn-find-us">FIND US</a>
-                    </div>
-                </div>
-
-                <!-- Location 4 -->
-                <div class="restaurant-card">
-                    <img src="https://images.unsplash.com/photo-1537047902294-62a40c20a6ae?w=600&auto=format&fit=crop&q=80" alt="SJR Koramangala Bangalore">
-                    <div class="restaurant-info">
-                        <h3>SJR KORAMANGALA, BANGALORE</h3>
-                        <p class="restaurant-city">Karnataka</p>
-                        <p class="restaurant-desc">80 Feet Road, 7th Block, Koramangala, Bengaluru.</p>
-                        <a href="#order" class="btn-find-us">FIND US</a>
-                    </div>
-                </div>
-
-                <!-- Location 5 -->
-                <div class="restaurant-card">
-                    <img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?w=600&auto=format&fit=crop&q=80" alt="Panjagutta Hyderabad">
-                    <div class="restaurant-info">
-                        <h3>PANJAGUTTA, HYDERABAD</h3>
-                        <p class="restaurant-city">Telangana</p>
-                        <p class="restaurant-desc">Next Galleria Mall, Nagarjuna Circle, Panjagutta.</p>
-                        <a href="#order" class="btn-find-us">FIND US</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-        <!-- TACO NEWS / WHAT'S NEW SECTION -->
-        <section id="news" class="news-section">
-            <div class="section-header">
-                <h3 class="section-kicker">OUR NEWS</h3>
-                <h2 class="section-title">TACO NEWS</h2>
-                <div class="title-divider"></div>
-            </div>
-
-            <div class="news-grid">
-                <!-- News 1 -->
-                <article class="news-card">
-                    <div class="news-img-wrap">
-                        <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=600&auto=format&fit=crop&q=80" alt="Winner Announcement">
-                    </div>
-                    <div class="news-content">
-                        <span class="news-date">SEPTEMBER 2026</span>
-                        <h3>Taco Bell Winner's Announcement</h3>
-                        <p>Celebrating the lucky winners of our national Live Más taco craving challenge with exclusive merchandise and free tacos for a year!</p>
-                        <a href="#hero" class="news-link">READ MORE &rarr;</a>
-                    </div>
-                </article>
-
-                <!-- News 2 -->
-                <article class="news-card">
-                    <div class="news-img-wrap">
-                        <img src="https://images.unsplash.com/photo-1543339308-43e59d6b73a6?w=600&auto=format&fit=crop&q=80" alt="Veggie Lovers">
-                    </div>
-                    <div class="news-content">
-                        <span class="news-date">AUGUST 2026</span>
-                        <h3>Taco Bell satisfies veggie lovers' cravings</h3>
-                        <p>Introducing our brand new all-plant delicious protein fillers, grilled pinto beans, and fresh guacamole spreads tailored for India.</p>
-                        <a href="#hero" class="news-link">READ MORE &rarr;</a>
-                    </div>
-                </article>
-
-                <!-- News 3 -->
-                <article class="news-card">
-                    <div class="news-img-wrap">
-                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&auto=format&fit=crop&q=80" alt="Taco Bell turns Desi">
-                    </div>
-                    <div class="news-content">
-                        <span class="news-date">JULY 2026</span>
-                        <h3>Taco Bell India turns desi</h3>
-                        <p>Experience the authentic Mexican fusion with fiery desi spices, masala seasoned fries, and tangy jalapeño mint dips.</p>
-                        <a href="#hero" class="news-link">READ MORE &rarr;</a>
-                    </div>
-                </article>
-
-                <!-- News 4 -->
-                <article class="news-card">
-                    <div class="news-img-wrap">
-                        <img src="https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?w=600&auto=format&fit=crop&q=80" alt="Cheesy G Taco Launch">
-                    </div>
-                    <div class="news-content">
-                        <span class="news-date">JUNE 2026</span>
-                        <h3>Cheesy G Taco launch</h3>
-                        <p>The legendary Cheesy Gordita Crunch taco makes its grand entry with double melted cheese layers between hard and soft shells.</p>
-                        <a href="#hero" class="news-link">READ MORE &rarr;</a>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-
-        <!-- ORDER NOW SECTION -->
-        <section id="order" class="order-section">
-            <div class="order-box-container">
-                <div class="section-header light-header">
-                    <h3 class="section-kicker yellow-kicker">CRAVE IT. GET IT.</h3>
-                    <h2 class="section-title white-title">ORDER NOW?</h2>
-                    <div class="title-divider yellow-divider"></div>
-                </div>
-
-                <form class="order-form" action="#hero" method="get">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="firstName">First Name</label>
-                            <input type="text" id="firstName" name="firstName" placeholder="Enter your full name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" name="phone" placeholder="Enter your 10-digit mobile number" required>
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="orderType">Order On</label>
-                            <select id="orderType" name="orderType">
-                                <option value="delivery">Delivery</option>
-                                <option value="takeaway">Dine-in / Takeaway</option>
-                                <option value="curbside">Curbside Pickup</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="favouriteCategory">Select Your Favorite</label>
-                            <select id="favouriteCategory" name="favouriteCategory">
-                                <option value="meal-mania">Meal Mania (@ ₹89)</option>
-                                <option value="big-bell-box">Big Bell Box Combos</option>
-                                <option value="taco-chalupa">Taco &amp; Chalupa</option>
-                                <option value="burrito-wraps">Burrito &amp; Wraps</option>
-                                <option value="quesadilla">Quesadillas</option>
-                                <option value="nachos">Loaded Nachos &amp; Dips</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="form-submit">
-                        <button type="submit" class="btn-yellow-lg">ORDER NOW</button>
-                    </div>
-                </form>
-            </div>
-        </section>
-
-
-        <!-- ABOUT US SECTION -->
-        <section id="about" class="about-section">
-            <div class="about-container">
-                <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=700&auto=format&fit=crop&q=80" alt="Live Más at Taco Bell">
-                </div>
-                <div class="about-text">
-                    <h3 class="section-kicker">OUR STORY</h3>
-                    <h2 class="about-title">LIVE MÁS AT TACO BELL</h2>
-                    <div class="title-divider-left"></div>
-                    <p>
-                        Taco Bell is the world's leading Mexican-inspired quick service restaurant brand.
-                        We serve made-to-order and customizable tacos, burritos, and specialties with bold flavors,
-                        quality ingredients, and best-in-class value.
-                    </p>
-                    <p>
-                        Since opening our first India restaurant, we have been crafting flavorful fiesta experiences
-                        with crispy shells, signature creamy sauces, crunchy nachos, and refreshingly chilled drinks.
-                    </p>
-                    <p>
-                        Whether you are dining in at one of our vibrant outlets or ordering online, every single bite
-                        is crafted to satisfy your bold cravings!
-                    </p>
-                    <a href="#menu" class="btn-purple">LEARN MORE</a>
-                </div>
-            </div>
-        </section>
-
-
-        <!-- FOOTER -->
-        <footer id="footer" class="footer">
-            <div class="footer-container">
-                <div class="footer-col">
-                    <div class="footer-brand">
-                        <span class="footer-bell">🔔</span>
-                        <h3 class="footer-logo">TACO BELL</h3>
-                    </div>
-                    <p class="footer-tag">Live Más. Serving craveable Mexican-inspired food with bold flavors, crisp ingredients, and energetic vibes across India.</p>
-                </div>
-                <div class="footer-col">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="#menu">Our Food</a></li>
-                        <li><a href="#restaurants">Find Us</a></li>
-                        <li><a href="#nutrition">Nutrition</a></li>
-                        <li><a href="#news">What's New</a></li>
-                        <li><a href="#offers">Special Offers</a></li>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#order">Order Online</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Connect With Us</h4>
-                    <ul class="social-text-links">
-                        <li><a href="https://www.facebook.com/tacobellindia" target="_blank" rel="noopener noreferrer">Facebook / TacoBellIndia</a></li>
-                        <li><a href="https://www.instagram.com/tacobell_india" target="_blank" rel="noopener noreferrer">Instagram / @tacobell_india</a></li>
-                        <li><a href="https://twitter.com/tacobellindia" target="_blank" rel="noopener noreferrer">X (Twitter) / @tacobellindia</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Taco Bell India Clone. All Rights Reserved. Created for HTML &amp; CSS Pair Programming Demonstration.</p>
-            </div>
-        </footer>
-
-        <!-- Floating Page Jump to Top Button -->
-        <a href="#hero" class="jump-top-btn" title="Jump to Top">
-            <span>▲</span>
-            <span class="jump-text">TOP</span>
-        </a>
-
-    </main>
-
-    <!-- Optional Beginner JavaScript -->
     <script src="script.js"></script>
+
 </body>
 </html>
